@@ -5,13 +5,7 @@ import org.graalvm.polyglot.Value;
 
 public class HeartAnalysisJava {
     public void callPythonMethods() {
-        Context ctx = Context.newBuilder()
-        //.option("python.CoreHome", "/Users/vijaykumarab/Downloads/graalvm-ee-java11-21.3.0/Contents/Home/languages/python/lib-graalpython")
-        //.option("python.StdLibHome", "/Users/vijaykumarab/Downloads/graalvm-ee-java11-21.3.0/Contents/Home/languages/python/lib-python/3")
-        //.option("python.CAPI", "/Users/vijaykumarab/Downloads/graalvm-ee-java11-21.3.0/Contents/Home/languages/python/lib-graalpython")
-        //.option("python.Executable", "/Users/vijaykumarab/AB-Home/blogs/graalvm-numpy/Code/ab_venv/bin/python")
-
-        .allowAllAccess(true).build();
+        Context ctx = Context.newBuilder().allowAllAccess(true).build();
         try {
             File fibCal = new File("./heartAnalysis.py");
             ctx.eval(Source.newBuilder("python", fibCal).build());
